@@ -14,10 +14,10 @@ class Config:
 
     Attributes are read by Flask via `app.config.from_object(Config)`.
     """
-    SECRET_KEY = os.environ.get(
-        'SECRET_KEY') or 'dev-secret-key-change-in-production'
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DATABASE_URL') or 'mysql+pymysql://root:Nopassword#.1@localhost/smartq-rwanda'
+    
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev-secret-key'
+
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     
     # use this for docker setup
 
