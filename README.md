@@ -296,7 +296,7 @@ Clear browser cookies or use incognito mode
 - Payment integration
 - Printer integration for physical tickets
 
-## Deployment (Production Server Setup)
+<!-- ## Deployment (Production Server Setup)
 
 This section explains how SmartQ was deployed on an Ubuntu server using **Nginx**, **Gunicorn**, and **Certbot**, and how the domain `smartq.regnante.tech` was configured.
 
@@ -417,7 +417,7 @@ Sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-Now your SmartQ application should be accessible via your server's IP address `http://your_server_ip`
+Now your SmartQ application should be accessible via your server's IP address `http://your_server_ip` -->
 
 ## Support
 
