@@ -250,7 +250,7 @@ smartq/
 
 ## Customization
 
-### SMS Integration
+<!-- ### SMS Integration
 Replace the mock SMS function in `app/routes/client.py` with actual Twilio integration:
 
 ```python
@@ -263,7 +263,7 @@ def send_sms(phone, message):
         from_=app.config['TWILIO_PHONE_NUMBER'],
         body=message
     )
-```
+``` -->
 
 ### Styling
 - Edit `app/static/css/style.css` for main interface
