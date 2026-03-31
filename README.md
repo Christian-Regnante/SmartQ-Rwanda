@@ -31,16 +31,14 @@ A comprehensive queue management system designed for Rwanda to reduce waiting ti
 
 1. **Clone or download the project**
 
-2. **Set up MySQL Database**
+2. **Create a Python virtual environment**
 
 ```bash
-# Login to MySQL
-mysql -u root -p
-
-# Create database
-CREATE DATABASE smartq_db;
-exit;
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
+
+**Make sure to change from the default environment to the created virtual environment to avoid conflicts with global packages.**
 
 3. **Install Python dependencies**
 
@@ -48,29 +46,42 @@ exit;
 pip install -r requirements.txt
 ```
 
-4. **Configure Database Connection**
+4. **Configure Environment Variables**
 
-Edit `config.py` and update the MySQL connection string:
+Create a `.env` file in the project root directory with the following variables:
 
-```python
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:YOUR_PASSWORD@localhost/smartq_db'
+```env
+DATABASE_URL=mysql+pymysql://username:password@localhost/db_name
+SECRET_KEY=your_secret_key_here
 ```
-
-Replace `YOUR_PASSWORD` with your MySQL root password.
-
-5. **Initialize the Database**
-
+**Create a secret key**: You can generate a secure random key using Python in the terminal:
 ```bash
-python run.py
+python -c "import secrets; print(secrets.token_hex(32))"
 ```
 
-The application will automatically create all tables and a default super admin account.
+**For local development:**
+- `DATABASE_URL`: MySQL connection string (format: `mysql+pymysql://user:password@host:port/database`)
+- `SECRET_KEY`: A secure random key for session management
+
+**Example for local MySQL:**
+```env
+DATABASE_URL=mysql+pymysql://root:your_password@localhost/smartq_db
+SECRET_KEY=dev-secret-key-change-in-production
+```
+
+**Note:** First make sure to create the database first before running the application:
+```bash
+mysql -u root -p
+CREATE DATABASE smartq_db;
+exit;
+```
 
 ## Running the Application
 
 ```bash
 python run.py
 ```
+The application will automatically create all tables and a default super admin account.
 
 The server will start on `http://localhost:5000`
 
